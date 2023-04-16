@@ -2,8 +2,8 @@
 <ul>
   <li *ngFor="let event of activity">
     <div>Username: {{ event.actor.login }}</div>
-    <div>Repository Name: {{ event.repo.name }}</div>
-    <div>Repository URL: <a href="{{ event.repo.url }}" target="_blank">{{ event.repo.url }}</a></div>
+    <div>Repository Name: <a href="https://github.com/{{ event.repo.name }}">{{ event.repo.name }}</a></div>
+    <div>Latest PR Comment: {{ event.payload?.pull_request?.title || event.payload?.issue?.title || event.payload?.commits?.[0]?.message || event.repo.description || 'N/A' }}</div>
     <div>Created At: {{ event.created_at }}</div>
   </li>
 </ul>
