@@ -1,0 +1,9 @@
+<h2 style="font-weight:bold; text-align:center;">My Most Recent GitHub Activity</h2>
+<ul>
+  <li *ngFor="let event of activity">
+    <div>Username: {{ event.actor.login }}</div>
+    <div>Repository Name: {{ event.repo.name }}</div>
+    <div>Repository URL: <a href="{{ event.repo.url }}" target="_blank">{{ event.repo.url }}</a></div>
+    <div>Created At: {{ event.created_at }}</div>
+  </li>
+</ul>
