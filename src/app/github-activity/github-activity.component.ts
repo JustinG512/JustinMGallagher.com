@@ -16,9 +16,10 @@ export class GithubActivityComponent implements OnInit {
   ngOnInit(): void {
     this.http.get<any[]>('https://api.github.com/users/JustinG512/events')
       .subscribe(response => {
-        this.activity = [response[0]]; // get the first (most recent) event from the response array
+        this.activity = response.slice(0,3); // get the last three events from the response array
       });
   }
+  
   
 
 }
