@@ -2,7 +2,7 @@
 <ul>
   <li *ngFor="let event of activity">
     <div><strong>Username:</strong> {{ event.actor.login }}</div>
-    <div><strong>Repository Name:</strong> <a href="https://github.com/{{ event.repo.name }}">{{ event.repo.name }}</a></div>
+    <div><strong>Repository Name:</strong> <a href="https://github.com/{{ event.repo.name }}">{{ event.repo.name }}</a> ({{ event.payload?.pull_request?.head?.ref || event.payload?.ref || 'master' }} branch)</div>
     <div><strong>Latest PR Comment:</strong> {{ event.payload?.pull_request?.title || event.payload?.issue?.title || event.payload?.commits?.[0]?.message || event.repo.description || 'N/A' }}</div>
     <div><strong>Created At:</strong> {{ event.created_at }}</div>
     <br> <!-- Add a line break here -->
